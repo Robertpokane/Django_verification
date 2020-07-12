@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+from django.core.mail import send_mail
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_auth.settings")
@@ -20,3 +21,12 @@ if __name__ == "__main__":
             )
         raise
     execute_from_command_line(sys.argv)
+
+
+send_mail(
+    "django test mail",
+    "this is django test mail",
+    "your.email@gmail.com",
+    "recipient.email@example.com",
+    fail_silently=False
+)
